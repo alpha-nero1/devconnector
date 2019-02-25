@@ -3,6 +3,13 @@
 This project is a tutorial from Brad Traversy on udemy: https://www.udemy.com/mern-stack-front-to-back/
 Also git-hub formatting for README.md can be found here: https://help.github.com/en/articles/basic-writing-and-formatting-syntax#content-attachments
 
+### Usefull VSCode Extensions
+
+1. Better Comments https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
+2. Bracket Pair Colorizer https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer
+3. Prettier - Code formatter https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+4. Name: ES7 React/Redux/GraphQL/React-Native snippets https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
+
 ## Running the project
 
 1. Enter in the root directory and run: `npm run dev` (This will run the server and client concurrently)
