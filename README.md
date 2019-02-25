@@ -22,7 +22,7 @@ Also git-hub formatting for README.md can be found here: https://help.github.com
 The file `/server.js` uses `express`, `mongoose`, `body-parser` and `passport`.
 Additonally it imports our routes to be used.
 
-```
+```JavaScript
 const express = require("express");
 const mongoose = require("mongoose");
 const users = require("./routes/api/users");
@@ -70,7 +70,7 @@ router.get or .post etc. functions can be defined and then the router can be exp
 In `server.js` we can simply define `app.use("/api/users", users);` giving the path
 and our imported route.
 
-```
+```JavaScript
 const express = require("express");
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
@@ -123,7 +123,7 @@ props.
 The UI (`client/src/App.js`) below shows the layout of the project. Note the wrapping in the Provider
 module to ensure contents have access to the imported global store.
 
-```
+```JavaScript
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux"; // imports the store
@@ -165,7 +165,7 @@ in `client/src/Store.js`. The store is the global state for the application and 
 App.js to be used in the react application. Note we are able to import `rootReducer` from `./reducers`
 because the folder contains an `index.js` (Reducers section shows contents).
 
-```
+```JavaScript
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
@@ -198,7 +198,7 @@ the data and wraps a method taking dispatch. Because these actions are async we
 call `dispatch({type: "", payload: ""});` instead of returning. dispatch calls upon
 the reducer to do its job once the async task has been performed.
 
-```
+```JavaScript
 import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
@@ -260,7 +260,7 @@ export const setCurrentUser = decoded => {
 in `client/reducers/index.js` first the reducers need to be combined to comply with the
 `createStore` first parameter. `client/Store.js` imports this.
 
-```
+```JavaScript
 import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
@@ -277,7 +277,7 @@ which is any related data we may need.
 
 by declaring a switch on action.type we can update the state segment according to the action
 
-```
+```JavaScript
 import { SET_CURRENT_USER } from "../actions/types";
 import is_empty from "../validation/is_empty";
 
