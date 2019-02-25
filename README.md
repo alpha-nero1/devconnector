@@ -1,6 +1,7 @@
 # DEV CONNECTOR MERN PROJECT
 
 This project is a tutorial from Brad Traversy on udemy: https://www.udemy.com/mern-stack-front-to-back/
+Also git-hub formatting for README.md can be found here: https://help.github.com/en/articles/basic-writing-and-formatting-syntax#content-attachments
 
 ## Running the project
 
@@ -54,16 +55,20 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 The react-redux workflow can be observed as such:
 
-####Reducers
+#### Reducers
+
 Updates the state, takes and action and returns the new state.
 
-####Actions
+#### Actions
+
 Entails the actual action to be performed.
 
-####Store
+#### Store
+
 The global state. Each reducer is assigned to a segment of the state.
 
-####View
+#### View
+
 The react component (connected to redux) that subscribes to the store 'segment'.
 mapStateToProps ensures that the part of the global store is used as the components
 props.
