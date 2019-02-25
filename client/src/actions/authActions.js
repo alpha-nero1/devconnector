@@ -2,7 +2,6 @@ import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
-import { decode } from "punycode";
 
 // Register
 export const register_user = (user_data, history) => dispatch => {
