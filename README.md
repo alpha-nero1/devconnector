@@ -52,6 +52,22 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 ## How React - Redux works
 
+The react-redux workflow can be observed as such:
+
+####Reducers
+Updates the state, takes and action and returns the new state.
+
+####Actions
+Entails the actual action to be performed.
+
+####Store
+The global state. Each reducer is assigned to a segment of the state.
+
+####View
+The react component (connected to redux) that subscribes to the store 'segment'.
+mapStateToProps ensures that the part of the global store is used as the components
+props.
+
 ### UI
 
 The UI (client/App.js) below shows the layout of the project. Note the wrapping in the Provider
@@ -185,7 +201,8 @@ export const setCurrentUser = decoded => {
 
 ### The Reducer
 
-in `client/reducers/index.js`
+in `client/reducers/index.js` first the reducers need to be combined to comply with the
+`createStore` first parameter. `client/Store.js` imports this.
 
 ```
 import { combineReducers } from "redux";
@@ -198,7 +215,11 @@ export default combineReducers({
 });
 ```
 
-and in `client/reducers/authReducer`
+and in `client/reducers/authReducer`. The reducer technically is a function accepting
+the state and action. by convention, each action has a type (to identify what we want to do) and a payload
+which is any related data we may need.
+
+by declaring a switch on action.type we can update the state segment according to the action
 
 ```
 import { SET_CURRENT_USER } from "../actions/types";
