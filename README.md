@@ -10,6 +10,11 @@ Also git-hub formatting for README.md can be found here: https://help.github.com
 
 ## The Node API
 
+### Server.js
+
+The file `/server.js` uses `express`, `mongoose`, `body-parser` and `passport`.
+Additonally it imports our routes to be used.
+
 ```
 const express = require("express");
 const mongoose = require("mongoose");
@@ -51,6 +56,35 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 ```
 
+### /routes/api/users.js (Example Route)
+
+Each router file imports `express` to use `const router = express.Router()` that way
+router.get or .post etc. functions can be defined and then the router can be exported.
+In `server.js` we can simply define `app.use("/api/users", users);` giving the path
+and our imported route.
+
+```
+const express = require("express");
+const gravatar = require("gravatar");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const passport = require("passport");
+const keys = require("../../config/keys");
+
+// Load input validator
+const register_validator = require("../../validation/register");
+const login_validator = require("../../validation/login");
+
+const User = require("../../models/User");
+
+const router = express.Router();
+
+// @route   GET api/users/test
+// @desc    tests users route
+// @access  Public
+router.get("/test", (req, res) => res.json({ msg: "Users works" }));
+```
+
 ## How React - Redux works
 
 The react-redux workflow can be observed as such:
@@ -61,7 +95,7 @@ Updates the state, takes and action and returns the new state.
 
 #### Actions
 
-Entails the actual action to be performed.
+Entails the actual action to be performed. (e.g an axios call to hit the API)
 
 #### Store
 
@@ -73,9 +107,13 @@ The react component (connected to redux) that subscribes to the store 'segment'.
 mapStateToProps ensures that the part of the global store is used as the components
 props.
 
+| --> View --Action--> Reducer --> Store- |
+| --------------------------------------- |
+
+
 ### UI
 
-The UI (client/App.js) below shows the layout of the project. Note the wrapping in the Provider
+The UI (`client/src/App.js`) below shows the layout of the project. Note the wrapping in the Provider
 module to ensure contents have access to the imported global store.
 
 ```
@@ -116,8 +154,9 @@ export default App;
 
 ### The Store
 
-in "client/Store.js". The store is the global state for the application and is imported in
-App.js to be used in the react application
+in `client/src/Store.js`. The store is the global state for the application and is imported in
+App.js to be used in the react application. Note we are able to import `rootReducer` from `./reducers`
+because the folder contains an `index.js` (Reducers section shows contents).
 
 ```
 import { createStore, applyMiddleware, compose } from "redux";
@@ -146,6 +185,11 @@ export default store;
 ```
 
 ### The Action
+
+in `client/src/actions/authActions.js`. note the action function first accepts
+the data and wraps a method taking dispatch. Because these actions are async we
+call `dispatch({type: "", payload: ""});` instead of returning. dispatch calls upon
+the reducer to do its job once the async task has been performed.
 
 ```
 import { GET_ERRORS, SET_CURRENT_USER } from "./types";
