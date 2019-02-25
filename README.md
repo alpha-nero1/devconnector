@@ -8,7 +8,7 @@ Also git-hub formatting for README.md can be found here: https://help.github.com
 1. Better Comments https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
 2. Bracket Pair Colorizer https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer
 3. Prettier - Code formatter https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-4. Name: ES7 React/Redux/GraphQL/React-Native snippets https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
+4. ES7 React/Redux/GraphQL/React-Native snippets https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
 
 ## Running the project
 
